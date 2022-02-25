@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Love me is a GIFT</title>
+</head>
+<body>
+<center>
+    <strong><h1>Do you love me?</h1></strong>
+    <button onclick="pressHere()">YES</button>
+    <button id="btnNo" onmouseover="dontPress()" style="position: relative;top: 0px;left: 20px">NO</button>
+</center>
+</body>
+<script>
+    function pressHere() {
+        alert('<3')
+    }
+    function dontPress() {
+        let x = Math.round(Math.random() * window.innerWidth);
+        let y = Math.round(Math.random() * window.innerHeight);
+        document.getElementById('btnNo').style.left = x + 'px';
+        document.getElementById('btnNo').style.top = y + 'px';
+    }
+</script>
+</html>

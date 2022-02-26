@@ -35,24 +35,24 @@ Số người phụ thuộc <input type="number" id="dependent">
         let income = +document.getElementById('income').value;
         let dependent = +document.getElementById('dependent').value;
         let time = document.getElementById('time').value;
-        let tax = income - dependent * 4400000 - 11000000;
+        let monthtax = income - dependent * 4400000 - 11000000;
         let yeartax = income - dependent * 4400000 * 12 - 132000000;
         let cit;
         if (time == 'month') {
-            if (tax > 80000000) {
-                cit = (tax - 80000000) * .35 + (80000000 - 52000000) * .3 + (52000000 - 32000000) * .25 + (32000000 - 18000000) * .2 + 8000000 * .15 + 5000000 * .1 + 5000000 * .05;
-            } else if (tax > 52000000) {
-                cit = (tax - 52000000) * .3 + (52000000 - 32000000) * .25 + (32000000 - 18000000) * .2 + 8000000 * .15 + 5000000 * .1 + 5000000 * .05;
-            } else if (tax > 32000000) {
-                cit = (tax - 32000000) * .25 + (32000000 - 18000000) * .2 + 8000000 * .15 + 5000000 * .1 + 5000000 * .05;
-            } else if (tax > 18000000) {
-                cit = (tax - 18000000) * .2 + 8000000 * .15 + 5000000 * .1 + 5000000 * .05;
-            } else if (tax > 10000000) {
-                cit = (tax - 10000000) * .15 + 5000000 * .1 + 5000000 * .05;
-            } else if (tax > 5000000) {
-                cit = (tax - 5000000) * .1 + 5000000 * .05;
-            } else if (tax > 0) {
-                cit = tax * .05;
+            if (monthtax > 80000000) {
+                cit = (monthtax - 80000000) * .35 + (80000000 - 52000000) * .3 + (52000000 - 32000000) * .25 + (32000000 - 18000000) * .2 + 8000000 * .15 + 5000000 * .1 + 5000000 * .05;
+            } else if (monthtax > 52000000) {
+                cit = (monthtax - 52000000) * .3 + (52000000 - 32000000) * .25 + (32000000 - 18000000) * .2 + 8000000 * .15 + 5000000 * .1 + 5000000 * .05;
+            } else if (monthtax > 32000000) {
+                cit = (monthtax - 32000000) * .25 + (32000000 - 18000000) * .2 + 8000000 * .15 + 5000000 * .1 + 5000000 * .05;
+            } else if (monthtax > 18000000) {
+                cit = (monthtax - 18000000) * .2 + 8000000 * .15 + 5000000 * .1 + 5000000 * .05;
+            } else if (monthtax > 10000000) {
+                cit = (monthtax - 10000000) * .15 + 5000000 * .1 + 5000000 * .05;
+            } else if (monthtax > 5000000) {
+                cit = (monthtax - 5000000) * .1 + 5000000 * .05;
+            } else if (monthtax > 0) {
+                cit = monthtax * .05;
             } else cit = 0;
         } else if (time == 'year') {
             if (yeartax > 960000000) {

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Diện tích tam giác vuông</title>
+</head>
+<!--Bài 5: Tính diện tích tam giác vuông khi biết 02 cạnh kề a, b.-->
+<body>
+<input type="number" id="a" placeholder="Nhập cạnh a">
+<input type="number" id="b" placeholder="Nhập cạnh b">
+<button onclick="calculate()">Tính diện tích</button>
+<script>
+    function calculate() {
+        let a = +document.getElementById('a').value;
+        let b = +document.getElementById('b').value;
+        let s = 1 / 2 * a * b;
+        alert('Diện tích tam giác vuông là: ' + s)
+    }
+</script>
+</body>
+</html>

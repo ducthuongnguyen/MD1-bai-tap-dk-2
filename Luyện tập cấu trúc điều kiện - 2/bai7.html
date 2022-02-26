@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Giải phương trình bậc 2</title>
+</head>
+<!--Bài 7: Giải phương trình bậc 2.-->
+<body>
+<p>Nhập các tham số của phương trình bậc hai ax2+bx+c=0 (a#0)</p>
+a = <input type="number" id="a">
+<br>
+<br>
+b = <input type="number" id="b">
+<br>
+<br>
+c = <input type="number" id="c">
+<br><br>
+<button onclick="result(form)">Kết quả</button>
+<br>
+<script>
+    function result(form) {
+        let a = +document.getElementById('a').value;
+        let b = +document.getElementById('b').value;
+        let c = +document.getElementById('c').value;
+        let delta = b * b - a * a * c;
+        let x1;
+        let x2;
+        if (delta < 0) {
+            alert('Phương trình vô nghiệm');
+        } else if (delta == 0) {
+            x1 = -b / 2 * a;
+            alert('Phương trình có nghiệm kép: x1 = x2 = '+x1);
+        } else {
+            x1 = (-b + Math.sqrt(delta) / 2 * a);
+            x2 = (-b - Math.sqrt(delta) / 2 * a);
+            alert('Phương trình có 2 nghiệm: ' + 'x1= ' + x1 + ' x2= ' + x2);
+        }
+    }
+</script>
+</body>
+</html>

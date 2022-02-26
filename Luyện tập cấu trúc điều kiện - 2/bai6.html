@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Giải phương trình bậc 1</title>
+</head>
+<!--Bài 6: Giải phương trình bậc 1.-->
+<body>
+<p>Nhập các tham số của phương trình ax + b = 0</p>
+a = <input type="number" id="a">
+b = <input type="number" id="b">
+<br>
+<br>
+<button onclick="result()">Kết quả</button>
+<h4 id="show"></h4>
+<script>
+    function result() {
+        let a = +document.getElementById('a').value;
+        let b = +document.getElementById('b').value;
+        let x = -b / a;
+        if (a == 0 && b == 0) {
+            x = 'Phương trình có vô số nghiệm'
+        } else if (a == 0 && b != 0) {
+            x = 'Phương trình vô nghiệm'
+        } else x = 'Phương trình có nghiệm duy nhất ' + x;
+        document.getElementById('show').innerHTML = x;
+    }
+</script>
+</body>
+</html>

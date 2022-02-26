@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<!--Bài 5: Xếp hạng học lực của học sinh dựa trên các điểm bài kiểm tra, điểm thi giữa kỳ, điểm thi cuối kỳ-->
+<body>
+Nhập điểm trung bình <input id="mark">
+<button onclick="checkRate()">Check Học lực</button>
+<script>
+    function checkRate() {
+        let point = +document.getElementById('mark').value;
+        if (point >= 8) {
+            alert('Bạn xếp hạng Giỏi')
+        } else if (point >= 7) {
+            alert('Bạn xếp học lực Khá')
+        } else if (point >= 6.5) {
+            alert('Bạn xếp học lực Trung Bình')
+        } else alert('Bạn xếp học lực Yếu')
+    }
+</script>
+</body>
+</html>

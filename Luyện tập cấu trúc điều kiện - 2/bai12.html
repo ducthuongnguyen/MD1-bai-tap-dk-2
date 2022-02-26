@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính lãi suất ngân hàng</title>
+    <!--    Bài 12: Viết chương trình tính lãi ngân hàng (lãi mẹ đẻ lãi con) khi biết số tiền ban đầu, số tháng cho vay và lãi xuất hàng tháng.-->
+</head>
+<body>
+<input type="number" placeholder="Nhập số tiền ban đầu" id="money">
+<input type="number" placeholder="Nhập số tháng" id="month">
+<input type="number" placeholder="Lãi suất NH hằng năm" id="int">
+<br>
+<br>
+<button onclick="calInterest()">Tính</button>
+<script>
+    function calInterest() {
+        let debt = +document.getElementById('money').value;
+        let month = +document.getElementById('month').value;
+        let rate = +document.getElementById('int').value;
+        // let n; //số tiền được nhập gốc mỗi năm
+        let futuredebt = debt*Math.pow((1+rate/100),month/12);
+        let payableinterest = Math.round(futuredebt-debt);
+        alert('Lãi suất ngân hàng bạn cần phải trả là: '+payableinterest +' đồng')
+    }
+</script>
+</body>
+</html>

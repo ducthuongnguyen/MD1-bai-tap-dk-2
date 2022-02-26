@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính giá điện</title>
+</head>
+<!--Bài 10: Viết chương trình tính giá điện.-->
+<!--Có 6 bậc giá cụ thể với cách tính lũy tiến với mức giá như sau:-->
+<!--Bậc 1: Từ 0-50kWh: 1.678 đồng/kWh-->
+<!--Bậc 2: Từ 51 – 100 kWh: 1.734 đồng/kWh-->
+<!--Bậc 3: Từ 101 – 200 kWh: 2.014 đồng/kWh-->
+<!--Bậc 4: Từ 201 – 300 kWh: 2.536 đồng/kWh.-->
+<!--Bậc 5: Từ 301 – 400 kWh: 2.834 đồng/kWh-->
+<!--Bậc 6: Từ 401 kWh trở lên: 2.927 đồng/kWh-->
+<!--<body>-->
+<input type="number" placeholder="Nhập số kWh đã sử dụng" id="electric">
+<button onclick="calElectric()">Kết quả</button>
+<script>
+    function calElectric() {
+        let num = +document.getElementById('electric').value;
+        let cost;
+        if (num > 400) {
+            cost = (num - 400) * 2927 + 100 * 2834 + 100 * 2536 + 100 * 2014 + 50 * 1734 + 50 * 1678;
+        } else if (num > 300) {
+            cost = (num - 300) * 2834 + 100 * 2536 + 100 * 2014 + 50 * 1734 + 50 * 1678;
+        } else if (num > 200) {
+            cost = (num - 200) * 2536 + 100 * 2014 + 50 * 1734 + 50 * 1678;
+        } else if (num > 100) {
+            cost = (num - 10) * 2014 + 50 * 1734 + 50 * 1678;
+        } else if (num > 50) {
+            cost = (num - 50) * 1734 + 50 * 1678;
+        } else cost = num * 1678;
+        alert('Tiền điện của gia đình bạn là: ' + cost+' đồng.')
+    }
+</script>
+</body>
+</html>

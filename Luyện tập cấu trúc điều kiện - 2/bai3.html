@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính diện tích hình vuông</title>
+</head>
+<!--Bài 3: Tính diện tích hình vuông khi biết cạnh a.-->
+<body>
+<input type="number" id="a" placeholder="Nhập cạnh hình vuông">
+<button onclick="calArea()">Tính diện tích</button>
+<script>
+    function calArea() {
+        let a = +document.getElementById('a').value;
+        let s = a * a;
+        alert('Diện tích hình vuông là ' + s)
+    }
+</script>
+</body>
+</html>

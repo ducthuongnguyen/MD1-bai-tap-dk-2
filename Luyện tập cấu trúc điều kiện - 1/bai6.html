@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hoa hồng Cali</title>
+</head>
+<!--&lt;!&ndash;Bài 6: Tính hoa hồng nhận được tuỳ theo mức doanh số bán hàng&ndash;&gt;-->
+<!--VD: Tính hoa hồng nhận được từ bán Hợp đồng Cali. Mức hoa hồng:-->
+<!-- - Từ 0 đến 50 triệu: 7%;-->
+<!-- - Từ 50 triệu đến 100 triệu: 11%;-->
+<!-- - Từ 100 triệu trở lên: 15% + thưởng nóng 2 triệu vượt doanh số;-->
+<body>
+<input type="number" id="revenue" placeholder="Nhập doanh số bán hàng">
+<br>
+<br>
+<button onclick="checkCommision()">Tính hoa hồng</button>
+<br>
+<br>
+<h3 id="show"></h3>
+<script>
+    function checkCommision() {
+        let revenue = +document.getElementById('revenue').value;
+        let comm1 = Math.round(revenue * .07);
+        let comm2 = Math.round(comm1 + (revenue - 50000000) * .11);
+        let comm3 = Math.round(comm2 + (revenue - 100000000) * .15);
+        if (revenue <= 50000000) {
+            document.getElementById('show').innerHTML = 'Hoa hồng bạn nhận được là: ' + comm1 + ' đồng';
+        } else if (revenue <= 100000000) {
+            document.getElementById('show').innerHTML = 'Hoa hồng bạn nhận được là: ' + comm2 + ' đồng';
+        } else
+            document.getElementById('show').innerHTML = 'Hoa hồng bạn nhận được là: ' + comm3 + ' đồng' + ' và được thưởng nóng 2.000.000 đồng ';
+    }
+</script>
+</body>
+</html>

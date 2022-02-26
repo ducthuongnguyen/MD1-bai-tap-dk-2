@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<!--Bài 3: Nhập một số nguyên bất kỳ và in kết quả ra màn hình để nói cho người dùng biết số đó là lớn hay nhỏ hơn 0-->
+<body>
+Nhập 1 số nguyên bất kỳ <input type="number" id="nb">
+<button onclick="checkPositive()">Check</button>
+<script>
+    function checkPositive() {
+        let x = +document.getElementById('nb').value;
+        if (x == 0) {
+            alert('Bạn đã nhập số nguyên là số 0')
+        }
+         if (x > 0) {
+            alert('Số ' + x + ' là số nguyên dương')
+        } else
+            alert('Số ' + x + ' là số nguyên âm')
+    }
+</script>
+</body>
+</html>

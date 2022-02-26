@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Đổi độ C sang độ F</title>
+</head>
+<!--Bài 1: Chuyển từ độ C sang độ F.-->
+<!--°C  x  9/5 + 32 = °F-->
+<body>
+<input type="number" id="temp" placeholder="Nhập độ C">
+<button onclick="cal()">Chuyển độ F</button>
+<br>
+<h4 id="show"></h4>
+<script>
+    function cal() {
+        let tempC = +document.getElementById('temp').value;
+        let tempF = tempC*9/5+32;
+        document.getElementById('show').innerHTML = tempC +' độ C bằng '+ tempF +' độ F'  }
+</script>
+</body>
+</html>

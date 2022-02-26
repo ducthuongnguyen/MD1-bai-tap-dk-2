@@ -7,13 +7,13 @@
 <!--Bài 11: Viết chương trình tính thuế thu nhập cá nhân.-->
 <body>
 <h1>TÍNH THUẾ THU NHẬP CÁ NHÂN</h1>
-<!--Tính theo-->
-<!--<select name='time' id="time" onchange="calCIT">-->
-<!--    <option value="month">Tháng</option>-->
-<!--    <option value="year">Năm</option>-->
-<!--</select>-->
-<!--<br>-->
-<!--<br>-->
+Tính thu nhập theo
+<select name='time' id="time" onchange="calCIT()">
+    <option value="month" name="time">Tháng</option>
+    <option value="year" name="time">Năm</option>
+</select>
+<br>
+<br>
 Tổng thu nhập (*) <input type="number" id="income">
 <br>
 <br>
@@ -23,36 +23,55 @@ Số người phụ thuộc <input type="number" id="dependent">
 <button onclick="calCIT()">Tính thuế phải nộp</button>
 <br>
 <br>
-<p>
+<i><p>
     Ghi chú:
-    <br> - (*) Tổng thu nhập: gồm lương tháng (đã trừ bảo hiểm bắt buộc) và thưởng.
+    <br> - (*) Tổng thu nhập: gồm lương tháng (đã trừ bảo hiểm bắt buộc) và thưởng (nhập tổng thu nhập năm nếu tính theo
+    năm)
     <br>- Áp dụng đối với tổng thu nhập từ tiền lương, tiền công
     <br>- Áp dụng đối với người nhận lương net (lương nhận được đã trừ bảo hiểm 10.5%)
-</p>
+</p></i>
 <script>
     function calCIT() {
         let income = +document.getElementById('income').value;
         let dependent = +document.getElementById('dependent').value;
-        // let time1 = document.getElementById('month');
-        // let time2 = document.getElementById('year');
-        let taxableincome = income - dependent * 4400000 - 11000000;
+        let time = document.getElementById('time').value;
+        let tax = income - dependent * 4400000 - 11000000;
+        let yeartax = income - dependent * 4400000 * 12 - 132000000;
         let cit;
-        if (taxableincome > 80000000) {
-            cit = (taxableincome - 80000000) * .35 + (80000000 - 52000000) * .3 + (52000000 - 32000000) * .25 + (32000000 - 18000000) * .2 + 8000000 * .15 + 5000000 * .1 + 5000000 * .05;
-        } else if (taxableincome > 52000000) {
-            cit = (taxableincome - 52000000) * .3 + (52000000 - 32000000) * .25 + (32000000 - 18000000) * .2 + 8000000 * .15 + 5000000 * .1 + 5000000 * .05;
-        } else if (taxableincome > 32000000) {
-            cit = (taxableincome - 32000000) * .25 + (32000000 - 18000000) * .2 + 8000000 * .15 + 5000000 * .1 + 5000000 * .05;
-        } else if (taxableincome > 18000000) {
-            cit = (taxableincome - 18000000) * .2 + 8000000 * .15 + 5000000 * .1 + 5000000 * .05;
-        } else if (taxableincome > 10000000) {
-            cit = (taxableincome - 10000000) * .15 + 5000000 * .1 + 5000000 * .05;
-        } else if (taxableincome > 5000000) {
-            cit = (taxableincome - 5000000) * .1 + 5000000 * .05;
-        } else if (taxableincome > 0) {
-            cit = taxableincome * .05;
-        } else cit = 0;
-        alert('Thuế thu nhập cá nhân bạn cần đóng là ' + cit + ' đồng.');
+        if (time == 'month') {
+            if (tax > 80000000) {
+                cit = (tax - 80000000) * .35 + (80000000 - 52000000) * .3 + (52000000 - 32000000) * .25 + (32000000 - 18000000) * .2 + 8000000 * .15 + 5000000 * .1 + 5000000 * .05;
+            } else if (tax > 52000000) {
+                cit = (tax - 52000000) * .3 + (52000000 - 32000000) * .25 + (32000000 - 18000000) * .2 + 8000000 * .15 + 5000000 * .1 + 5000000 * .05;
+            } else if (tax > 32000000) {
+                cit = (tax - 32000000) * .25 + (32000000 - 18000000) * .2 + 8000000 * .15 + 5000000 * .1 + 5000000 * .05;
+            } else if (tax > 18000000) {
+                cit = (tax - 18000000) * .2 + 8000000 * .15 + 5000000 * .1 + 5000000 * .05;
+            } else if (tax > 10000000) {
+                cit = (tax - 10000000) * .15 + 5000000 * .1 + 5000000 * .05;
+            } else if (tax > 5000000) {
+                cit = (tax - 5000000) * .1 + 5000000 * .05;
+            } else if (tax > 0) {
+                cit = tax * .05;
+            } else cit = 0;
+        } else if (time == 'year') {
+            if (yeartax > 960000000) {
+                cit = (yeartax - 960000000) * .35 + (960000000 - 624000000) * .3 + (624000000 - 384000000) * .25 + (384000000 - 216000000) * .2 + (216000000 - 120000000) * .15 + (120000000 - 60000000) * .1 + 60000000 * .05;
+            } else if (yeartax > 624000000) {
+                cit = (yeartax - 624000000) * .3 + (624000000 - 384000000) * .25 + (384000000 - 216000000) * .2 + (216000000 - 120000000) * .15 + (120000000 - 60000000) * .1 + 60000000 * .05;
+            } else if (yeartax > 384000000) {
+                cit = (yeartax - 384000000) * .25 + (384000000 - 216000000) * .2 + (216000000 - 120000000) * .15 + (120000000 - 60000000) * .1 + 60000000 * .05;
+            } else if (yeartax > 216000000) {
+                cit = (yeartax - 216000000) * .2 + (216000000 - 120000000) * .15 + (120000000 - 60000000) * .1 + 60000000 * .05;
+            } else if (yeartax > 120000000) {
+                cit = (yeartax - 120000000) * .15 + (120000000 - 60000000) * .1 + 60000000 * .05;
+            } else if (yeartax > 60000000) {
+                cit = (yeartax - 60000000) * .1 + 60000000 * .05;
+            } else if (yeartax > 0) {
+                cit = yeartax * .05;
+            } else cit = 0;
+        }
+        alert('Thuế thu nhập cá nhân bạn cần đóng là ' + cit + ' đồng.')
     }
 </script>
 </body>
